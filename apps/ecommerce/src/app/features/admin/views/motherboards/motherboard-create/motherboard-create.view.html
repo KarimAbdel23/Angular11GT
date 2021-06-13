@@ -1,0 +1,23 @@
+
+<form [formGroup]="motherboardForm">
+    <input class="form-control" type="text" formControlName="SKU">
+    <input class="form-control" type="text" formControlName="Chipset">
+    <input class="form-control" type="text" formControlName="Procesador">
+    <input class="form-control" type="text" formControlName="Modelo">
+    <input class="form-control" type="text" formControlName="Socket">
+    <input class="form-control" type="text" formControlName="Marca">
+    <input class="form-control" type="text" formControlName="TipoMemoria">
+    <input class="form-control" type="text" formControlName="MemoriaMaxima">
+    <input class="form-control" type="text" formControlName="Descripcion">
+    <input class="form-control" type="text" formControlName="Aviso">
+    <input class="form-control" type="text" formControlName="Piezas">
+    <input class="form-control" type="text" formControlName="PrecioAnterior">
+    <input class="form-control" type="text" formControlName="Precio">
+    <input class="form-control" type="text" formControlName="CostoEnvio">
+    <input class="form-control" type="text" formControlName="Porcentaje">
+    <input class="form-control" type="text" formControlName="ValidoHasta">
+    <input class="form-control" type="text" formControlName="Logo">
+    <input class="form-control" type="text" formControlName="ImagenS">
+
+    <button class="btn btn-primary" (click)="saveMotherboard()"  >Guardar</button>
+</form>

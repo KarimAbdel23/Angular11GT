@@ -1,0 +1,85 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/">KarComputers</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" routerLink="/inicio" routerLinkActive="active">
+            Inicio
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" routerLink="/componentes" routerLinkActive="active" id="navbarDropdown" role="button" data-bs-toggle="dropdown" >
+            Componentes
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" routerLink="/componentes/tarjetas-madre">Tarjetas Madre</a></li>
+            <li><a class="dropdown-item" routerLink="/componentes/procesadores">Procesadores</a></li>
+            <li><a class="dropdown-item" href="#">Memoria Ram</a></li>
+            <li><a class="dropdown-item" href="#">Discos Duros</a></li>
+            <li><a class="dropdown-item" href="#">Tarjetas de Video</a></li>
+            <li><a class="dropdown-item" href="#">Fuentes de Poder</a></li>
+            <li><a class="dropdown-item" href="#">Gabinetes</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Otros</a></li>
+          </ul>
+        </li>
+        <!--
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" routerLink="/ayuda" routerLinkActive="active" id="navbarDdHelp" role="button" data-bs-toggle="dropdown">
+            Ayuda
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Contactanos</a></li>
+            <li><a class="dropdown-item" href="#">Acerca de...</a></li>
+          </ul>
+        </li>
+        -->
+        <li class="nav-item">
+          <a *ngIf="!mostrarLogOut" class="nav-link" aria-current="page" routerLink="auth/ingresar" routerLinkActive="active">
+            Ingresar
+          </a>
+          <a *ngIf="mostrarLogOut" class="nav-link" aria-current="page" routerLink="auth/salir" routerLinkActive="active">
+            Salir
+          </a>
+        </li>
+        <li *ngIf="mostrarMiCuenta" class="nav-item">
+          <a class="nav-link" aria-current="page" routerLink="/mi-cuenta" routerLinkActive="active">
+            Mi Cuenta
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" routerLink="/admin" routerLinkActive="active" id="navbarDropdown" role="button" data-bs-toggle="dropdown" >
+            Admin
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Tarjetas Madre</a></li>
+            <li><a class="dropdown-item" routerLink="/catalogos/procesadores">Procesadores</a></li>
+            <li><a class="dropdown-item" href="#">Memoria Ram</a></li>
+            <li><a class="dropdown-item" href="#">Discos Duros</a></li>
+            <li><a class="dropdown-item" href="#">Tarjetas de Video</a></li>
+            <li><a class="dropdown-item" href="#">Fuentes de Poder</a></li>
+            <li><a class="dropdown-item" href="#">Gabinetes</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Otros</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<button type="button" class="btn btn-success" routerLink="/comprar">Comprar</button>
+
+<p>portal works!</p>
+
+<router-outlet></router-outlet>
+
+

@@ -1,0 +1,128 @@
+<button type="button" class="btn btn-secondary" routerLink="/componentes/procesadores"> <<< Regresar</button>
+
+<div class="container" *ngIf="processor; else spinnerTemplate" >
+  <div class="row">
+    <div class="col-4">
+          <div>
+            <a href="https://www.cyberpuerta.mx/Por-Marca/AMD/" class="detailsInfo_left_picture_manufacturer"
+              title="AMD">
+              <img [src]="processor.Logo" >
+            </a>
+          </div>
+
+            <div style="height: 250px">
+              <a id="emzoommainpic" rel="nofollow" class="emzoompics"
+                data-link="https://www.cyberpuerta.mx/index.php?cl=cpzoompam&amp;anid=804c2acebf1856509fd50670ea4185fa&amp;empicactive=1"
+                href="javascript:void(0)">
+                <img [src]="processor.ImagenS">
+              </a>
+            </div>
+    </div>
+    <div class="col-4">
+      <h1 class="detailsInfo_right_title"> {{  processor.Descripcion }}  ―<strong> {{  processor.Promocion }}  </strong> </h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4">
+          <div class="cptitle-details">Características</div>
+          <div class="detailsInfo_right_more_attribute">
+            <ul>
+              <li>Familia de procesador: <span> {{ processor.Familia}}  </span></li>
+              <li>Modelo del procesador: <span> {{ processor.Modelo  }} </span></li>
+              <li>Frecuencia del procesador: <span>  {{  processor.Frecuencia  }} </span></li>
+              <li>Socket de procesador: <span> {{ processor.Socket }} </span></li>
+              <li>Número de núcleos: <span> {{ processor.Nucleos }} </span></li>
+            </ul>
+          </div>
+    </div>
+    <div class="col-4">
+        <!-- Art Num & Social Icons -->
+        <div class="grid-x">
+          <div class="medium-8 cell">
+            <div class="detailsInfo_right_artnum">  {{  processor.SKU }}  </div>
+          </div>
+        </div>
+
+        <div class="grid-x">
+          <div class="medium-4 cell cp-pr">
+            <!-- Promo -->
+            <div class="cppromo-box">
+              <div class="offerbox hasuntil hasdaily clear">
+                <div class="percentbox">
+                  <span class="percent"> {{  processor.Porcentaje | percent}}  </span>
+                </div>
+              </div>
+              <div class="untilText" style="border: 1px solid #e7e7e7;padding: 5px 0;text-align: center;">
+                <div class="untildate" style="font-size: 12px;color: #666;">Válido hasta:
+                  <strong>  {{ processor.ValidoHasta }} </strong>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="medium-8 cell cp-pr">
+            <div class="detailsInfo_pricebox">
+              <div class="detailsInfo_pricebox_main">
+                <div class="oldPrice cp-ar">
+                  <!--sse-->
+                  <div>
+                    <del> $ {{ processor.PrecioAnterior  | currency }}  </del>
+                  </div>
+                  <!--/sse-->
+                </div>
+                <div class="mainPrice">
+                  <!--sse-->
+                  <span class="priceText">  ${{ processor.Precio }} </span>
+
+                </div>
+                <div class="row">
+                  <span *ngIf="processor.CostoEnvio==0" >Envío gratis</span>
+                  <span *ngIf="processor.CostoEnvio>0" >{{ processor.CostoEnvio | currency}} </span>
+                </div>
+
+                <div class="row">
+                  <span class="stockFlag">
+                    Disponibles:
+                    <span> {{ processor.Piezas }} </span>
+                    pzs.
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row" >
+            <div class="table">
+              <div class="row">
+                  <div class="col-1">
+                    <button type="button" class="embuttonamount_minus"
+                      data-article-id="804c2acebf1856509fd50670ea4185fa" data-button-change-amount="minus">-</button>
+                  </div>
+                  <div class="col-2">
+                    <input type="text" name="am" value="1" size="3"
+                      autocomplete="off" class="textbox" data-cp-orig-value="2" data-cp-amount-basket=""
+                      data-press-promo="" data-cp-group="804c2acebf1856509fd50670ea4185fa">
+                  </div>
+                  <div class="col-1">
+                    <button type="button" class="embuttonamount_plus" data-article-id="804c2acebf1856509fd50670ea4185fa"
+                      data-button-change-amount="plus">+</button>
+                  </div>
+              </div>
+                <button type="button" class="btn btn-warning">Añadir al carrito</button>
+            </div>
+        </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<ng-template #spinnerTemplate >
+  <div class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</ng-template>
+
+

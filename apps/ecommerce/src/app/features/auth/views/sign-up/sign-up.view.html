@@ -1,0 +1,163 @@
+<p>sign-up works!</p>
+
+<form #form="ngForm" class="register-user-form">
+
+  <div class="mb-3">
+    <label for="exampleInputName" class="form-label">Nombres</label>
+    <input
+      ngModel
+      name="name"
+      #nameField="ngModel"
+      required
+      maxlength="128"
+      type="text"
+      class="form-control"
+      [class.is-invalid]="nameField.invalid && (nameField.touched || nameField.dirty)"
+      [ngClass]="{
+        'is-valid': nameField.valid && (nameField.touched || nameField.dirty)
+      }"
+      id="exampleInputName"
+      aria-describedby="emailHelp"
+    />
+    <ng-container *ngIf="(nameField.touched || nameField.dirty)">
+      <span *ngIf="nameField.hasError('required')">
+        Este campo es requerido
+      </span>
+    </ng-container>
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleInputSurname" class="form-label">Apellidos</label>
+    <input
+      ngModel
+      name="surname"
+      #surnameField="ngModel"
+      required
+      maxlength="128"
+      type="email"
+      class="form-control"
+      [class.is-invalid]="surnameField.invalid && (surnameField.touched || surnameField.dirty)"
+      [ngClass]="{
+        'is-valid': surnameField.valid && (surnameField.touched || surnameField.dirty)
+      }"
+      id="exampleInputSurname"
+      aria-describedby="emailHelp"
+    />
+    <ng-container *ngIf="(surnameField.touched || surnameField.dirty)">
+      <span *ngIf="surnameField.hasError('required')">
+        Este campo es requerido
+      </span>
+  </ng-container>
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleInputUser" class="form-label">usuario</label>
+    <input
+      ngModel
+      name="username"
+      #usernameField="ngModel"
+      required
+      maxlength="64"
+      type="text"
+      class="form-control"
+      [class.is-invalid]="usernameField.invalid && (usernameField.touched || usernameField.dirty)"
+      [ngClass]="{
+        'is-valid': usernameField.valid && (usernameField.touched || usernameField.dirty)
+      }"
+      id="exampleInputUser"
+      aria-describedby="emailHelp"
+    />
+    <ng-container *ngIf="(usernameField.touched || usernameField.dirty)">
+      <span *ngIf="usernameField.hasError('required')">
+        Este campo es requerido
+      </span>
+  </ng-container>
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Correo</label>
+    <input
+      ngModel
+      name="email"
+      #emailField="ngModel"
+      required
+      appEmailFormat
+      type="email"
+      class="form-control"
+      [class.is-invalid]="emailField.invalid && (emailField.touched || emailField.dirty)"
+      [ngClass]="{
+        'is-valid': emailField.valid && (emailField.touched || emailField.dirty)
+      }"
+      id="exampleInputEmail1"
+      aria-describedby="emailHelp"
+    />
+    <span *ngIf="emailField.hasError('emailFormat')">
+      {{ emailField.getError('emailFormat') }}
+    </span>
+  </div>
+
+
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+    <input
+      ngModel
+      name="password"
+      #passwordField="ngModel"
+      required
+      minlength="6"
+      maxlength="20"
+      type="password"
+      class="form-control"
+      [class.is-invalid]="passwordField.invalid && (passwordField.touched || passwordField.dirty)"
+      [ngClass]="{
+        'is-valid': passwordField.valid && (passwordField.touched || passwordField.dirty)
+      }"
+      id="exampleInputPassword1"
+    />
+
+    <ng-container *ngIf="(passConfirmField.touched || passConfirmField.dirty)">
+      <span *ngIf="passConfirmField.hasError('required')">
+        Este campo es requerido
+      </span>
+      <span *ngIf="passConfirmField.hasError('minlength')">
+        Este campo debe tener minimo 6 caracteres
+      </span>
+    </ng-container>
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleInputPassword2" class="form-label">Confirmar Contraseña</label>
+    <input
+      ngModel
+      name="passConfirm"
+      #passConfirmField="ngModel"
+      required
+      minlength="6"
+      maxlength="20"
+      type="password"
+      class="form-control"
+      [class.is-invalid]="passConfirmField.invalid && (passConfirmField.touched || passConfirmField.dirty)"
+      [ngClass]="{
+    'is-valid': passConfirmField.valid && (passConfirmField.touched || passConfirmField.dirty)
+  }"
+      id="exampleInputPassword2"
+    />
+    <ng-container *ngIf="(passConfirmField.touched || passConfirmField.dirty)">
+      <span *ngIf="passConfirmField.hasError('required')">
+        Este campo es requerido
+      </span>
+      <span *ngIf="passConfirmField.hasError('minlength')">
+        Este campo debe tener minimo 6 caracteres
+      </span>
+    </ng-container>
+  </div>
+
+  <button
+    [disabled]="form.invalid"
+    type="submit"
+    class="btn btn-primary"
+    [ngClass]="form.invalid ? 'btn btn-secondary' : 'btn btn-primary'"
+    (click)="saveUser(form)">
+    Guardar
+  </button>
+</form>

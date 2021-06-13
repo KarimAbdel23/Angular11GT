@@ -1,0 +1,52 @@
+<div class="row">
+
+  <h1 class="text-center">Listado de procesadores</h1>
+  <br>
+  <div class="col-1"></div>
+  <div class="col-10">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">SKU</th>
+          <th scope="col">Marca</th>
+          <th scope="col">Familia</th>
+          <th scope="col">Modelo</th>
+          <th scope="col">Nucleos</th>
+          <th scope="col">Socket</th>
+          <th scope="col">RGD</th>
+          <th scope="col">Frecuencia</th>
+          <th scope="col">Piezas</th>
+          <th scope="col">Precio Anterior</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Porcentaje</th>
+          <th scope="col">Costo Envio</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let processor of processors ">
+          <td>{{ processor.id }}</td>
+          <td>{{ processor.SKU }}</td>
+          <td>{{ processor.Marca }}</td>
+          <td>{{ processor.Familia }}</td>
+          <td>{{ processor.Modelo }}</td>
+          <td>{{ processor.Nucleos | number }}</td>
+          <td>{{ processor.Socket }}</td>
+          <td>{{ processor.RGD ? 'Si' :'No'  }}</td>
+          <td>{{ processor.Frecuencia }}</td>
+          <td>{{ processor.Piezas | number }}</td>
+          <td>{{ processor.PrecioAnterior | currency }}</td>
+          <td>{{ processor.Precio | currency}}</td>
+          <td>{{ processor.Porcentaje | percent }}</td>
+          <td>{{ processor.CostoEnvio | currency}}</td>
+          <td>
+            <button class="btn"><i class="bi bi-pencil-square"></i></button>
+            <button class="btn"><i class="bi bi-trash"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-1"></div>
+</div>

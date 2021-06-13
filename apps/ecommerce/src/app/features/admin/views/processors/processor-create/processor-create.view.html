@@ -1,0 +1,83 @@
+
+
+<h1 class="text-center" >Registro de procesador</h1>
+
+
+<div class="container">
+    <label formControl="txtSku">SKU</label>
+    <input id="txtSku" class="form-control" type="text" [formControl]="skuField"/>
+    <span *ngIf="skuField.hasError('required') && (skuField.touched || skuField.dirty)" >
+      Este campo es requerido
+    </span>
+  <br/>
+
+  <label formControl="txtFamily">Familia</label>
+  <input id="txtFamily" class="form-control" type="text" [formControl]="familyField"/>
+  <br/>
+
+  <label formControl="txtModel">Modelo</label>
+  <input id="txtModel" class="form-control" type="text" [formControl]="modelField"/>
+  <br/>
+
+  <label formControl="txtSocket">Socket</label>
+  <input id="txtSocket" class="form-control" type="text" [formControl]="socketField"/>
+  <br/>
+
+  <label formControl="txtCores">Nucleos</label>
+  <input id="txtCores" class="form-control" type="number" [formControl]="coresField"/>
+  <br/>
+
+  <label formControl="txtBrand">Marca</label>
+  <select id="slctBrand" class="form-select" aria-label="Default select example" [formControl]="brandField">
+    <option selected>Seleccionar...</option>
+    <option value="1">INTEL</option>
+    <option value="2">AMD</option>
+  </select>
+  <br/>
+
+  <label formControl="txtDescription">Descripción</label>
+  <input id="txtDescription" class="form-control" type="text" [formControl]="descriptionField"/>
+  <br/>
+
+  <label formControl="txtRgd">Requiere grafica discreta: </label>
+  <input id="txtRgd"  type="checkbox" [formControl]="rgdField"/>
+  <br/>
+
+  <label formControl="txtFrecuency">Frecuencia</label>
+  <input id="txtFrecuency" class="form-control" type="number" [formControl]="frecuencyField"/>
+  <br/>
+
+  <label formControl="txtPromotion">Promocion</label>
+  <input id="txtPromotion" class="form-control" type="text" [formControl]="promotionField"/>
+  <br/>
+
+  <label formControl="txtPieces">Piezas</label>
+  <input id="txtPieces" class="form-control" type="text" [formControl]="piecesField"/>
+  <br/>
+
+  <label formControl="txtPrice">Precio</label>
+  <input id="txtPrice" class="form-control" type="number" [formControl]="priceField"/>
+  <br/>
+
+  <label formControl="txtBeforePrice">PrecioAnterior</label>
+  <input id="txtBeforePrice" class="form-control" type="number" [formControl]="beforePriceField"/>
+  <br/>
+
+  <label formControl="txtCost">Costo de envio</label>
+  <input id="txtCost" class="form-control" type="number" [formControl]="costField"/>
+  <br/>
+
+  <label formControl="txtPercentage">Porcentaje</label>
+  <input id="txtPercentage" class="form-control" type="number" [formControl]="percentageField"/>
+  <br/>
+
+  <label formControl="txtValidUntil">Valido Hasta</label>
+  <input id="txtValidUntil" class="form-control" type="date" [formControl]="validUntilField"/>
+  <br/>
+
+  <label formControl="txtImage">Imagen</label>
+  <input id="txtImage" class="form-control" type="image" [formControl]="imageField"/>
+  <br/>
+
+  <button class="btn btn-primary" (click)="saveProcessor()" >Guardar</button>
+</div>

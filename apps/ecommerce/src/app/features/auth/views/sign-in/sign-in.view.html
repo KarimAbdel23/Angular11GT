@@ -1,0 +1,56 @@
+<div class="login-form">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email</label>
+    <input
+      [(ngModel)]="credencials.email"
+      #emailField="ngModel"
+      required
+      pattern="^[^@]+@[^@]+\.[a-zA-Z]{2,}$"
+      type="email"
+      class="form-control"
+      [class.is-invalid]="emailField.invalid && (emailField.touched || emailField.dirty)"
+      [ngClass]="{
+        'is-valid': emailField.valid && (emailField.touched || emailField.dirty)
+      }"
+      id="exampleInputEmail1"
+      aria-describedby="emailHelp"
+    />
+    <ng-container *ngIf="(emailField.touched || emailField.dirty)" >
+      <span *ngIf="emailField.hasError('required')" > Este campo es requerido </span>
+      <span *ngIf="emailField.hasError('pattern')" > Ingrese un email valido </span>
+    </ng-container>
+
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+    <input
+      [(ngModel)]="credencials.password"
+      #passwordField="ngModel"
+      required
+      minlength="8"
+      maxlength="24"
+      type="password"
+      class="form-control"
+      [class.is-invalid]="passwordField.invalid && (passwordField.touched || passwordField.dirty)"
+      [ngClass]="{
+        'is-valid': passwordField.valid && (passwordField.touched || passwordField.dirty)
+      }"
+      id="exampleInputPassword1"
+    />
+    <ng-container *ngIf="(passwordField.touched || passwordField.dirty)" >
+      <span *ngIf="passwordField.hasError('required')" > Este campo es requerido </span>
+      <span *ngIf="passwordField.hasError('minlength')" > Este campo debe tener minimo 8 caracteres</span>
+    </ng-container>
+  </div>
+
+  <button
+      [disabled]="passwordField.invalid || emailField.invalid"
+      [ngClass]="passwordField.invalid || emailField.invalid ? 'btn btn-secondary' : 'btn btn-primary'"
+      type="submit" class="btn btn-primary" (click)="signIn()">
+    Iniciar sesión
+  </button>
+
+  <br />
+  <a routerLink="../registrarse">Registrarse</a>
+</div>

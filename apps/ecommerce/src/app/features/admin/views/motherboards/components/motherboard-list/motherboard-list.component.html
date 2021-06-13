@@ -1,0 +1,61 @@
+
+<h3>listado hijo</h3>
+
+<h4> {{ nombreHijoListado}} </h4>
+
+<button class="btn btn-primary" (click)="cambiarNombreHijo()" >cambiar nombre hijo</button>
+
+<div class="row">
+
+  <h1 class="text-center">Listado de tarjetas madre</h1>
+  <br>
+  <div class="col-1"></div>
+  <div class="col-10">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">SKU</th>
+          <th scope="col">Marca</th>
+          <th scope="col">Procesador</th>
+          <th scope="col">Modelo</th>
+          <th scope="col">Socket</th>
+          <th scope="col">Chipset</th>
+          <th scope="col">Tipo Memoria</th>
+          <th scope="col">Memoria Maxima</th>
+          <th scope="col">Piezas</th>
+          <th scope="col">Precio Anterior</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Porcentaje</th>
+          <th scope="col">Costo Envio</th>
+          <th scope="col">Valido hasta</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let motherboard of motherboards ">
+          <td>{{ motherboard.id }}</td>
+          <td>{{ motherboard.SKU }}</td>
+          <td>{{ motherboard.Marca }}</td>
+          <td>{{ motherboard.Procesador }}</td>
+          <td>{{ motherboard.Modelo }}</td>
+          <td>{{ motherboard.Socket }}</td>
+          <td>{{ motherboard.Chipset }}</td>
+          <td>{{ motherboard.TipoMemoria }}</td>
+          <td>{{ motherboard.MemoriaMaxima }}</td>
+          <td>{{ motherboard.Piezas | number }}</td>
+          <td>{{ motherboard.PrecioAnterior | currency }}</td>
+          <td>{{ motherboard.Precio | currency}}</td>
+          <td>{{ motherboard.Porcentaje | percent }}</td>
+          <td>{{ motherboard.CostoEnvio | currency}}</td>
+          <td>{{ motherboard.ValidoHasta | date}}</td>
+          <td>
+            <button class="btn" (click)="gotoEdit(motherboard.id)" ><i class="bi bi-pencil-square"></i></button>
+            <button class="btn" (click)="gotoDelete(motherboard.id)" ><i class="bi bi-trash"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-1"></div>
+</div>

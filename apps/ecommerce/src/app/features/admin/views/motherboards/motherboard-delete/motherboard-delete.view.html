@@ -1,0 +1,40 @@
+<p>motherboard-delete works!</p>
+
+<!--
+<app-motherboard-list ngForm="" name="listMotherboards" id="listadoMotherboard" *ngIf="isListado"></app-motherboard-list>
+
+<app-motherboard-plantilla *ngIf="!isListado" ></app-motherboard-plantilla>
+
+
+<button *ngIf="!isListado" class="btn btn-primary" (click)="aceptDelete(3)">Aceptar</button>
+
+<button *ngIf="!isListado" type="button" class="btn btn-secondary" (click)="returnList()">Regresar</button>
+
+(cambioNombreHijoEmitter)=" nombreVista = $event"
+
+
+<button  class="btn btn-primary" (click)="aceptDelete(3)">Aceptar</button>
+
+<button  type="button" class="btn btn-secondary" (click)="returnList()">Regresar</button>
+
+
+-->
+
+<h3> {{ nombreVista }}</h3>
+<button type="button" class="btn btn-success" (click)="cambiarNombre()">Cambiar nombre</button>
+
+<hr>
+
+<app-motherboard-list *ngIf="mostrarListado"
+    [nombreHijoListado]="nombreVista"
+    (cambioNombreHijoEmitter)="cambiarEmitter($event)"
+    (accionCrudListadoEmitter)="cambiarAccionCrud($event)"
+
+    >
+
+</app-motherboard-list>
+
+<app-motherboard-plantilla #plantilla *ngIf="mostrarPlantilla" [accionCrudPlantilla]="accionCrudVista"     (accionCrudPlantillaEmitter)="cambiarAccionCrud($event)" ></app-motherboard-plantilla>
+
+
+
